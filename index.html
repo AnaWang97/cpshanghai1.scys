@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>外卖CPS实战航海群 - 07月25日社群精华日报</title>
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+
+    <style>
+        /*
+         * =================================================================
+         * 小清新风格 (Fresh & Light Style)
+         * -----------------------------------------------------------------
+         * 设计理念: 明亮、通透、简约、自然
+         * =================================================================
+         */
+        :root {
+            --bg-primary: #f7f9fc; /* 极浅的、带有空气感的蓝色背景 */
+            --bg-card: #ffffff;
+            --text-primary: #37474f; /* 柔和的、深石板灰色 */
+            --text-secondary: #607d8b; /* 较浅的、柔和的石板色 */
+            --accent-mint: #4db6ac; /* 主色调: 柔和薄荷绿 */
+            --accent-coral: #ff8a65; /* 辅色调: 淡珊瑚粉 */
+            --border-color: #eceff1;
+            
+            /* 为不同卡片准备的多样化背景色 */
+            --card-bg-mint-light: #e0f2f1;
+            --card-bg-coral-light: #fff3e0;
+            --card-bg-blue-light: #e3f2fd;
+            --card-bg-purple-light: #f3e5f5;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            scroll-behavior: smooth;
+        }
+
+        /* Typography */
+        h1, h2, .font-display {
+            font-family: 'ZCOOL KuaiLe', 'Noto Sans SC', sans-serif; /* 为标题选用更活泼的字体 */
+        }
+        
+        h3, h4, h5, h6 {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: 500; /* 使用较细的字重以获得更柔和的感觉 */
+        }
+        
+        /* Title Hero Section */
+        .hero-header {
+            background: linear-gradient(135deg, #e0f7fa 0%, #fce4ec 100%);
+            border-radius: 24px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-header .icon {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.15;
+            color: var(--accent-mint);
+        }
+
+        /* Section Title Style */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .section-title::before, .section-title::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border-color), transparent);
+        }
+        .section-title i {
+            color: var(--accent-mint);
+        }
+
+
+        /* Card Styling */
+        .digest-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px; /* 更柔和的圆角 */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .digest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+        }
+        
+        /* Adding specific background colors for thematic cards */
+        .card-bg-intro { background-color: var(--card-bg-blue-light); }
+        .card-bg-quotes { background-color: var(--card-bg-coral-light); }
+        .card-bg-stars { background-color: var(--card-bg-mint-light); }
+        .card-bg-links { background-color: var(--card-bg-purple-light); }
+
+
+        /* Highlighting Styles */
+        .highlight-name {
+            color: #1e88e5;
+            font-weight: 500;
+            background-color: #e3f2fd;
+            padding: 2px 6px;
+            border-radius: 6px;
+        }
+
+        .highlight-keyword {
+            color: var(--accent-coral);
+            font-weight: 500;
+            background-color: #fff3e0;
+            padding: 2px 6px;
+            border-radius: 6px;
+        }
+        
+        /* Quote Block Styling */
+        .quote-block {
+            border-left: 3px solid var(--accent-coral);
+            padding: 0.75rem 1.25rem;
+            margin: 0.5rem 0;
+            background-color: #fff;
+            border-radius: 0 8px 8px 0;
+        }
+        .quote-block p {
+            color: var(--text-secondary);
+        }
+        .quote-block .author {
+            color: #b0bec5;
+            font-weight: 500;
+            text-align: right;
+            margin-top: 0.5rem;
+        }
+
+        /* Keyword/Tag Cloud Styling */
+        .keyword-tag {
+            background-color: #eceff1;
+            color: var(--text-secondary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        .keyword-tag:hover {
+             background-color: var(--accent-mint);
+             color: white;
+        }
+
+        /* Q&A Section Styling */
+        .qa-card .question {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .qa-card .supplement {
+            background-color: #f1f3f5;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            border: 1px dashed #cfd8dc;
+        }
+        
+        /* Link styles */
+        a {
+            color: var(--accent-mint);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        a:hover {
+            color: var(--accent-coral);
+        }
+
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <div class="container mx-auto p-4 sm:p-6 lg:p-10 max-w-4xl">
+
+        <!-- Header -->
+        <header class="mb-12 text-center hero-header">
+             <i class="fas fa-paper-plane icon" style="top: 10%; left: 5%; transform: rotate(-20deg);"></i>
+             <i class="fas fa-sailboat icon" style="bottom: 15%; right: 10%; transform: rotate(15deg); font-size: 4rem;"></i>
+             <i class="fas fa-sun icon" style="top: 20%; right: 20%; font-size: 2rem;"></i>
+            
+            <h1 class="text-5xl font-bold text-gray-700 font-display">Mini航海实战·外卖推客</h1>
+            <p class="text-xl text-gray-500 mt-3">2025年07月25日 DAY1 · 社群精华日报</p>
+        </header>
+
+        <!-- Main Content Wrapper -->
+        <div class="space-y-12">
+            <!-- Part 1: Digest -->
+            <section id="digest">
+                <h2 class="section-title"><i class="fas fa-newspaper"></i>第一部分：社群精华日报</h2>
+                
+                <div class="space-y-8">
+                    <!-- Daily Summary Card -->
+                    <div class="digest-card p-8">
+                         <h3 class="font-bold text-xl mb-4 text-center text-gray-600">今日速览</h3>
+                        <div class="flex flex-col sm:flex-row justify-around items-center gap-4 text-center">
+                            <div class="flex items-center gap-3"><i class="fas fa-comments text-4xl text-sky-400"></i><div><p class="text-2xl font-bold">~500+</p><p class="text-sm text-gray-500">消息数</p></div></div>
+                            <div class="flex items-center gap-3"><i class="fas fa-users text-4xl text-teal-400"></i><div><p class="text-2xl font-bold">~70+</p><p class="text-sm text-gray-500">活跃用户</p></div></div>
+                            <div class="flex items-center gap-3"><i class="fas fa-fire text-4xl text-orange-400"></i><div><p class="text-2xl font-bold">12</p><p class="text-sm text-gray-500">热点话题</p></div></div>
+                        </div>
+                        <p class="mt-6 text-gray-600 leading-relaxed text-center">今日群内讨论异常活跃，核心围绕官方“<span class="highlight-keyword">专属密令</span>”的领取、兑换和测试展开。大量成员集中处理密令申请流程，暴露出库存不足、操作指引不清等问题，教练团队进行了密集答疑。同时，直播带货的准备工作，如素材制作、话术准备和技术设备选型，成为另一大讨论热点。价值信息集中在“<span class="highlight-keyword">密令/口令</span>”的正确使用和<span class="highlight-keyword">归因测试</span>方法上，为后续大规模推广打下基础。</p>
+                    </div>
+
+                    <!-- Group Intro Card -->
+                    <div class="digest-card p-6 card-bg-intro">
+                        <h3 class="font-bold text-xl mb-3 flex items-center"><i class="fas fa-compass mr-3 text-blue-500"></i>群聊介绍</h3>
+                        <p class="text-gray-600 leading-relaxed">这是一个专注于外卖与电商CPS（按效果付费）项目实战的社群。群内成员致力于通过直播、短视频和私域流量等方式推广美团、饿了么、淘宝等平台的优惠活动来获得佣金。社群文化以积极提问、互助解答和实战分享为核心，教练团队提供专业指导，旨在帮助成员快速掌握CPS推广技巧并实现盈利。</p>
+                    </div>
+
+                    <!-- Core Issues Section -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-center text-gray-700">核心议题探讨</h3>
+                        <div class="space-y-6">
+                            <div class="digest-card p-6 flex items-start gap-4"><i class="fas fa-bullhorn text-3xl text-orange-400 mt-1 w-12 text-center"></i><div><h4 class="font-bold text-lg text-gray-900">【官方公告】专属密令发放与兑换</h4><p class="text-gray-600 mt-1">官方通过飞书文档发放“<span class="highlight-keyword">专属密钥</span>”（兑换码），用于在云瞻平台兑换一个核心业务（主推美团外卖节）的数字密令。此举引发全天讨论高峰。</p></div></div>
+                            <div class="digest-card p-6 flex items-start gap-4 card-bg-coral-light"><i class="fas fa-exclamation-triangle text-3xl text-red-400 mt-1 w-12 text-center"></i><div><h4 class="font-bold text-lg text-gray-900">【突发状况】密令库存告急与应对策略</h4><p class="text-gray-600 mt-1">由于领取人数过多，云瞻平台的<span class="highlight-keyword">密令库存</span>多次告急，导致部分成员无法兑换。教练团队紧急协调补货，并建议未领到者可先使用“<span class="highlight-keyword">口令</span>”进行短视频推广。</p></div></div>
+                            <div class="digest-card p-6 flex items-start gap-4"><i class="fas fa-flask-vial text-3xl text-green-500 mt-1 w-12 text-center"></i><div><h4 class="font-bold text-lg text-gray-900">【价值分享】密令/口令归因的终极测试法</h4><p class="text-gray-600 mt-1"><span class="highlight-name">@奋斗先生</span> 分享了验证推广链接或密令是否有效绑定的标准流程，被普遍认为是推广前的“必修课”。核心步骤为：使用任意一个微信号，通过自己的推广链接/密令领券并下单（可以选择预订单模式，下单后立即取消），随后在云瞻后台的“所有订单”中核对订单号是否同步回来。这一方法确保了推广归因的准确性，避免无效推广。</p></div></div>
+                            <div class="digest-card p-6 flex items-start gap-4 card-bg-blue-light"><i class="fas fa-puzzle-piece text-3xl text-blue-500 mt-1 w-12 text-center"></i><div><h4 class="font-bold text-lg text-gray-900">【概念辨析】“密令” vs “口令”的核心区别与应用场景</h4><p class="text-gray-600 mt-1">教练团队明确了两种核心推广工具的差异：“<span class="highlight-keyword">密令</span>”是纯数字形式，其核心优势在于便于记忆和口播，是<span class="highlight-keyword">直播</span>场景下的首选；而“<span class="highlight-keyword">口令</span>”则是一串包含链接的字符代码，用户复制后打开对应App即可自动唤起活动页面，更适用于<span class="highlight-keyword">短视频文案、社群分享</span>等私域场景。两者的优惠力度和佣金逻辑完全一致，选择哪种仅取决于推广渠道。</p></div></div>
+                            <div class="digest-card p-6 flex items-start gap-4"><i class="fas fa-tachometer-alt text-3xl text-indigo-400 mt-1 w-12 text-center"></i><div><h4 class="font-bold text-lg text-gray-900">【深度问答】“推广位”的正确理解与设置</h4><p class="text-gray-600 mt-1">针对大量成员提出的“推广位应该怎么选”的问题，<span class="highlight-name">@瑶瑶-教练</span> 澄清了其核心价值：推广位（PID）的主要作用是进行“<span class="highlight-keyword">数据来源区分</span>”。例如，为抖音、快手、微信群设置不同的推广位，可以清晰地追踪各渠道的转化效果，从而优化投放策略。对于新手而言，直接使用“<span class="highlight-keyword">默认推广位</span>”完全不影响佣金结算和正常推广。</p></div></div>
+                            <div class="digest-card p-6 flex items-start gap-4 card-bg-mint-light"><i class="fas fa-random text-3xl text-teal-500 mt-1 w-12 text-center"></i><div><h4 class="font-bold text-lg text-gray-900">【实战策略】多平台推广的密令选择</h4><p class="text-gray-600 mt-1">在官方仅提供一个免费密令兑换码的背景下，如何选择兑换的业务成为热点。教练建议优先兑换主推的“<span class="highlight-keyword">美团外卖节</span>”，因其是长期高佣活动。同时明确，饿了么、京东等平台的密令申请有较高的门槛（如月订单量要求），而其他如淘宝闪购等业务的密令则需要成员按需付费购买。</p></div></div>
+                            <div class="digest-card p-6 flex items-start gap-4"><i class="fas fa-image text-3xl text-purple-400 mt-1 w-12 text-center"></i><div><h4 class="font-bold text-lg text-gray-900">【直播技巧】直播间素材与合规话术</h4><p class="text-gray-600 mt-1">成员们热烈讨论了直播间背景图、优惠信息图的制作方法。教练指导，优惠图的文案必须依据官方最新活动（如美团外卖节周末激励）来制作，可以使用美图秀秀等工具拼图。同时，为规避平台审核风险，话术和图片中应避免直接出现“美团”、“淘宝”等品牌词，建议使用“<span class="highlight-keyword">某团</span>”、“<span class="highlight-keyword">某宝</span>”等代称。</p></div></div>
+                            <div class="digest-card p-6 flex items-start gap-4 card-bg-coral-light"><i class="fas fa-tools text-3xl text-orange-500 mt-1 w-12 text-center"></i><div><h4 class="font-bold text-lg text-gray-900">【技术支持】直播设备选型与故障排除</h4><p class="text-gray-600 mt-1">成员们就直播所需的麦克风、投屏软件等进行了咨询。教练推荐使用带<span class="highlight-keyword">监听功能</span>的耳麦以确保音质。针对苹果Mac电脑无法安装PC版直播伴侣的普遍问题，给出的解决方案是先用手机直播，或使用Windows电脑。对于爱思助手投屏不稳定的情况，教练分析可能是数据线连接问题。</p></div></div>
+                            <div class="digest-card p-6 flex items-start gap-4"><i class="fas fa-share-alt text-3xl text-cyan-400 mt-1 w-12 text-center"></i><div><h4 class="font-bold text-lg text-gray-900">【新玩法】MP链接生成与私域应用</h4><p class="text-gray-600 mt-1"><span class="highlight-name">@瑶瑶-教练</span> 分享了将普通推广链接转换为“一点即跳”小程序（<span class="highlight-keyword">MP链接</span>）的高阶玩法教程。这种链接形式在微信社群等私域环境中用户体验更佳，转化率更高，但需特别注意，淘宝业务因平台限制，不支持小程序跳转，建议使用口令中间页的方式推广。</p></div></div>
+                            <div class="digest-card p-6 flex items-start gap-4 card-bg-blue-light"><i class="fas fa-video text-3xl text-blue-400 mt-1 w-12 text-center"></i><div><h4 class="font-bold text-lg text-gray-900">【学员首秀】直播实战复盘与成长</h4><p class="text-gray-600 mt-1">成员 <span class="highlight-name">@博阳-广州-lv4</span> 率先开播，并进行了实时分享与复盘。他遇到了流量少、设备杂音大、话术违规（直接提及平台名称）等一系列新手常见问题。教练团队和群友进行了实时指导，强调了保持互动、确保声音清晰、规避敏感词等对于新手主播的重要性，为其他成员提供了宝贵的“避坑”经验。</p></div></div>
+                            <div class="digest-card p-6 flex items-start gap-4"><i class="fab fa-hotjar text-3xl text-red-500 mt-1 w-12 text-center"></i><div><h4 class="font-bold text-lg text-gray-900">【经验分享】小红书推广的机遇与挑战</h4><p class="text-gray-600 mt-1">群内讨论了小红书平台的推广潜力。教练指出，小红书流量精准且可观，但平台规则极度严格，对引流和推广内容的审核非常苛刻，<span class="highlight-keyword">封号风险高</span>。同一套文案和素材，老账号可能安全无虞，但新号极易被判定违规。</p></div></div>
+                            <div class="digest-card p-6 flex items-start gap-4 card-bg-mint-light"><i class="fas fa-hand-holding-usd text-3xl text-green-600 mt-1 w-12 text-center"></i><div><h4 class="font-bold text-lg text-gray-900">【商业模式】CPS激励政策与结算周期解读</h4><p class="text-gray-600 mt-1">成员对佣金结算规则十分关心。教练明确，云瞻平台的佣金是于<span class="highlight-keyword">次月23日</span>进行结算。此外，CPS模式的魅力不仅在于基础佣金，更在于官方不定时推出的<span class="highlight-keyword">激励活动</span>，如本次的“周六激励”，订单数达到相应门槛后会有阶梯式额外奖金，这是CPS项目实现高收益的关键。</p></div></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quotes Card -->
+                    <div class="digest-card p-6 card-bg-quotes">
+                        <h3 class="font-bold text-xl mb-4 flex items-center"><i class="fas fa-quote-left mr-3 text-red-400"></i>精彩引用</h3>
+                        <div class="space-y-4">
+                            <div class="quote-block"><p>"测试可以这样测试：把链接转好后，自己的微信点击领券，下单，正常选美食或者奶茶，用券，如果不需要可以点预订单，点完后马上取消，看看订单有没有同步回来。"</p><p class="author">- <span class="highlight-name">@奋斗先生</span></p></div>
+                            <div class="quote-block"><p>"推广位主要是用于区分数据来源，不同渠道投放建议使用不同推广位。"</p><p class="author">- <span class="highlight-name">@一薪一亿</span></p></div>
+                            <div class="quote-block"><p>"密令和口令的区别：口令是一串字母组成的乱码，复制出来后直接到对应的APP，就会弹出领劵界面...密令是一串数字组成，使用方法是在用户看到后到对应APP输入数字..."</p><p class="author">- <span class="highlight-name">@阿刁</span></p></div>
+                            <div class="quote-block"><p>"小红书规则极度抽象，老手都需要不断改文案，很容易就违规了。"</p><p class="author">- <span class="highlight-name">@阿刁</span></p></div>
+                            <div class="quote-block"><p>"时长拉够，把状态拿出来抖音才给你推流。"</p><p class="author">- <span class="highlight-name">@阿刁</span></p></div>
+                            <div class="quote-block"><p>"佣金不是重点，重点是激励，把订单数搞上来就很香。"</p><p class="author">- <span class="highlight-name">@HS</span></p></div>
+                            <div class="quote-block"><p>"新手直播，没有推荐说明账号有问题，有推荐不进人说明封面和标题有问题，进来留不住跑了直播内容有问题，"</p><p class="author">- <span class="highlight-name">@。。。。</span></p></div>
+                            <div class="quote-block"><p>"我意思你直接拿个新号操作一遍领劵流程，录屏录下来，你直播或者短视频不就可以直接拿出来讲了吗。"</p><p class="author">- <span class="highlight-name">@阿刁</span></p></div>
+                            <div class="quote-block"><p>"一个密令只对应一个业务，现在我们发的都是美团外卖节的，这个是长期的哈。"</p><p class="author">- <span class="highlight-name">@阿刁</span></p></div>
+                            <div class="quote-block"><p>"两种推广方式，直播是用数字密令，短视频用口令。"</p><p class="author">- <span class="highlight-name">@阿刁</span></p></div>
+                        </div>
+                    </div>
+
+                    <!-- Active Stars Card -->
+                     <div class="digest-card p-6 card-bg-stars">
+                        <h3 class="font-bold text-xl mb-4 flex items-center"><i class="fas fa-star mr-3 text-yellow-400"></i>活跃之星</h3>
+                        <table class="w-full text-left">
+                            <thead class="border-b border-gray-200">
+                                <tr>
+                                    <th class="py-2">用户名</th>
+                                    <th class="py-2 text-center">发言数</th>
+                                    <th class="py-2">主要贡献</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-600 text-sm">
+                                <tr><td class="py-2 font-semibold text-gray-700"><span class="highlight-name">@阿刁-教练（答疑）</span></td><td class="py-2 text-center">70+</td><td>全能答疑，覆盖密令、口令、直播、平台规则等各方面。</td></tr>
+                                <tr class="bg-gray-50"><td class="py-2 font-semibold text-gray-700"><span class="highlight-name">@一薪一亿-教练（答疑）</span></td><td class="py-2 text-center">30+</td><td>密集解答密令兑换、推广位设置、订单归因等技术问题。</td></tr>
+                                <tr><td class="py-2 font-semibold text-gray-700"><span class="highlight-name">@Ramon</span></td><td class="py-2 text-center">40+</td><td>积极的行动派，率先直播并分享实战数据与遇到的问题，引发大量有效讨论。</td></tr>
+                                <tr class="bg-gray-50"><td class="py-2 font-semibold text-gray-700"><span class="highlight-name">@。。。。-教练（直播答疑）</span></td><td class="py-2 text-center">20+</td><td>专注解答直播技术问题，如直播画面设置、声音问题、违规点规避等。</td></tr>
+                                <tr><td class="py-2 font-semibold text-gray-700"><span class="highlight-name">@刘志凯</span></td><td class="py-2 text-center">30+</td><td>持续提问，覆盖了从链接设置到直播设备、画面制作等多个实操细节。</td></tr>
+                                <tr class="bg-gray-50"><td class="py-2 font-semibold text-gray-700"><span class="highlight-name">@阿讯｜22:30休息</span></td><td class="py-2 text-center">20+</td><td>深入提问CPS逻辑，并分享了自己直播测试的经验。</td></tr>
+                                <tr><td class="py-2 font-semibold text-gray-700"><span class="highlight-name">@llbf-教练（答疑）</span></td><td class="py-2 text-center">15+</td><td>辅助解答密令兑换、渠道设置等问题。</td></tr>
+                                <tr class="bg-gray-50"><td class="py-2 font-semibold text-gray-700"><span class="highlight-name">@双翼腾飞</span></td><td class="py-2 text-center">20+</td><td>早期就密令、单品活动等问题发起提问，推动了讨论。</td></tr>
+                                <tr><td class="py-2 font-semibold text-gray-700"><span class="highlight-name">@文(rolaqaz)</span></td><td class="py-2 text-center">20+</td><td>围绕设备、账号、链接生成等问题不断提问，覆盖面广。</td></tr>
+                                <tr class="bg-gray-50"><td class="py-2 font-semibold text-gray-700"><span class="highlight-name">@云中鹤</span></td><td class="py-2 text-center">15+</td><td>积极参与直播并分享了收益截图，探讨直播策略。</td></tr>
+                                <tr><td class="py-2 font-semibold text-gray-700"><span class="highlight-name">@RK10</span></td><td class="py-2 text-center">15+</td><td>关注直播细节，如设备选型、素材制作、活动规则等。</td></tr>
+                                <tr class="bg-gray-50"><td class="py-2 font-semibold text-gray-700"><span class="highlight-name">@Orime</span></td><td class="py-2 text-center">10+</td><td>参与讨论，同步群内动态。</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Tools & Links Card -->
+                    <div class="digest-card p-6 card-bg-links">
+                         <h3 class="font-bold text-xl mb-4 flex items-center"><i class="fas fa-link mr-3 text-purple-400"></i>新工具与资源链接</h3>
+                         <ul class="space-y-3 text-gray-700">
+                             <li><i class="fas fa-key fa-fw mr-2 text-gray-400"></i><strong>专属密钥领取链接</strong>: <a href="https://shengcaiyoushu01.feishu.cn/share/base/query/shrcne78BXLkaQJ9dZIjyu0Qzwc" target="_blank">点击领取</a></li>
+                             <li><i class="fas fa-file-alt fa-fw mr-2 text-gray-400"></i><strong>密令兑换与使用流程</strong>: <a href="https://dvuwvdqc60.feishu.cn/wiki/VcfZwnaqeiU29Dkc9Rhcuwotnrd?from=from_copylink" target="_blank">点击查看</a></li>
+                             <li><i class="fas fa-magic fa-fw mr-2 text-gray-400"></i><strong>MP链接（小程序跳转）生成教程</strong>: <a href="https://kzurl20.cn/7CD23R" target="_blank">点击查看</a></li>
+                             <li><i class="fas fa-tasks fa-fw mr-2 text-gray-400"></i><strong>密令领取和测试详细教程</strong>: <a href="https://dvuwvdqc60.feishu.cn/wiki/ZPoyw3moVi9FQcktJnTcDwLrn6f?from=from_copylink" target="_blank">点击查看</a></li>
+                             <li><i class="fas fa-user-check fa-fw mr-2 text-gray-400"></i><strong>云瞻ID填写链接</strong>: <a href="https://scys.com/form/z27Vz2BK" target="_blank">点击填写</a></li>
+                             <li><i class="fas fa-calendar-check fa-fw mr-2 text-gray-400"></i><strong>航海打卡链接</strong>: <a href="https://scys.com/activity/landing/7572?tabIndex=0" target="_blank">点击打卡</a></li>
+                             <li><i class="fas fa-desktop fa-fw mr-2 text-gray-400"></i><strong>抖音直播伴侣官网</strong>: <a href="https://streamingtool.douyin.com/" target="_blank">点击访问</a></li>
+                         </ul>
+                    </div>
+                    
+                    <!-- Word Cloud Card -->
+                    <div class="digest-card p-6">
+                        <h3 class="font-bold text-xl mb-4 flex items-center"><i class="fas fa-cloud mr-3 text-sky-400"></i>热词云图</h3>
+                        <div class="flex flex-wrap gap-2">
+                             <span class="keyword-tag">密令</span><span class="keyword-tag">举手</span><span class="keyword-tag">教练</span><span class="keyword-tag">链接</span><span class="keyword-tag">推广</span><span class="keyword-tag">直播</span><span class="keyword-tag">可以</span><span class="keyword-tag">外卖</span><span class="keyword-tag">美团</span><span class="keyword-tag">淘宝</span><span class="keyword-tag">口令</span><span class="keyword-tag">活动</span><span class="keyword-tag">佣金</span><span class="keyword-tag">测试</span><span class="keyword-tag">视频</span><span class="keyword-tag">库存</span><span class="keyword-tag">用户</span><span class="keyword-tag">饿了么</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Part 2: Technical Q&A -->
+            <section id="qa">
+                <h2 class="section-title"><i class="fas fa-wrench"></i>第二部分：核心问题清单</h2>
+                <div class="space-y-6">
+                    <div class="digest-card qa-card p-6"><h4 class="question flex items-start gap-3"><i class="fas fa-question-circle text-xl text-coral mt-1"></i><span>问题1：饿了么的MP（小程序跳转）链接如何设置？</span></h4><div class="answer-section mt-4 text-gray-600 space-y-2 text-base leading-relaxed pl-8"><p><strong>提出者：</strong> <span class="highlight-name">@廖宥博-Jason</span></p><p><strong>回答：</strong><ul class="list-disc list-inside ml-4 space-y-1"><li><strong>技术难点</strong>：饿了么与美团的链接机制不同，且平台提供的链接需要手动处理才能生成MP链接。</li><li><strong>解决方案</strong>：<ol class="list-decimal list-inside ml-2 space-y-1"><li><strong>(by <span class="highlight-name">@i(元元-教练)</span>)</strong>：参考官方提供的MP链接转换教程进行操作。</li><li><strong>(by <span class="highlight-name">@i(元元-教练)</span>)</strong>：由于该链接是手动转的，强烈建议在推广前进行完整测试，确保能够成功跟单。</li></ol></li><li><strong>关键工具/资源</strong>：云瞻平台、MP链接转换教程文档。</li></ul></p><div class="supplement"><strong>注意事项</strong>：<span class="highlight-name">@i</span> 特别指出，用户截图中的“淘宝闪购”链接在私域推广时，不应直接使用，而应通过“口令中间页”进行跳转，以保证转化率。</div></div></div>
+                    <div class="digest-card qa-card p-6"><h4 class="question flex items-start gap-3"><i class="fas fa-question-circle text-xl text-coral mt-1"></i><span>问题2：在云瞻平台点击“转链”后生成的链接，是否就是可以直接推广的归因链接？</span></h4><div class="answer-section mt-4 text-gray-600 space-y-2 text-base leading-relaxed pl-8"><p><strong>提出者：</strong> <span class="highlight-name">@炮朵拉</span></p><p><strong>回答：</strong><ul class="list-disc list-inside ml-4 space-y-1"><li><strong>技术难点</strong>：确认链接是否已成功绑定个人推广ID。</li><li><strong>解决方案</strong>：是的，点击转链后生成的链接就是包含个人推广信息的归因链接，可以直接用于推广。<br><span class="highlight-name">@鸡哥</span> 补充了一个判断标准：如果转链后链接有变化，说明转链成功；若无变化，则可能无法转链。</li><li><strong>关键工具/资源</strong>：云瞻平台“一键转链”功能。</li></ul></div></div>
+                    <div class="digest-card qa-card p-6"><h4 class="question flex items-start gap-3"><i class="fas fa-question-circle text-xl text-coral mt-1"></i><span>问题3：如何测试MP链接或密令是否成功绑定了自己的推广渠道？</span></h4><div class="answer-section mt-4 text-gray-600 space-y-2 text-base leading-relaxed pl-8"><p><strong>提出者：</strong> <span class="highlight-name">@阿讯｜22:30休息</span></p><p><strong>回答：</strong><ul class="list-disc list-inside ml-4 space-y-1"><li><strong>技术难点</strong>：如何在不产生实际消费的情况下，验证订单归因是否准确。</li><li><strong>解决方案</strong>：<ol class="list-decimal list-inside ml-2 space-y-1"><li>使用自己的任意一个微信号，点击转好的链接或使用密令领券。</li><li>正常下单（可以选择“预订单”），支付后立即在订单页面申请退款/取消订单。</li><li>登录云瞻后台，在“订单”或“数据”板块查看是否有对应的订单记录同步回来（即使是失效订单也会同步）。</li></ol></li><li><strong>关键工具/资源</strong>：云瞻平台数据看板。</li></ul></p><div class="supplement"><strong>经验分享</strong>：<span class="highlight-name">@奋斗先生</span> 强调，只要领了券并下单使用了该券，即使订单失效，也能在5分钟内看到数据同步，这证明链接是有效的。一个业务的MP链接测试成功后，可以保存长期使用。</div></div></div>
+                    <div class="digest-card qa-card p-6"><h4 class="question flex items-start gap-3"><i class="fas fa-question-circle text-xl text-coral mt-1"></i><span>问题4：兑换的“专属密令”是一次性的还是长期的？一个兑换码能换几个业务？</span></h4><div class="answer-section mt-4 text-gray-600 space-y-2 text-base leading-relaxed pl-8"><p><strong>提出者：</strong> <span class="highlight-name">@李立华</span>, <span class="highlight-name">@Jack</span>, <span class="highlight-name">@云中鹤</span></p><p><strong>回答：</strong><ul class="list-disc list-inside ml-4 space-y-1"><li><strong>技术难点</strong>：理解密令的有效期、业务绑定规则和兑换码的使用限制。</li><li><strong>解决方案</strong>：<ul class="list-disc list-inside ml-2"><li><strong>一码一令</strong>：一个兑换码只能兑换一个业务的密令。本次官方免费赠送的兑换码主要用于兑换“美团外卖节”。</li><li><strong>一令一业务</strong>：一个密令只绑定一个推广业务（如“美团外卖节”或“淘宝闪购”）。</li><li><strong>密令有效期</strong>：密令本身的有效期通常是一个月，需要定期续期。但其对应的业务（如美团外卖节）是长期的。</li></ul></li><li><strong>关键工具/资源</strong>：云瞻平台“密令推广”模块。</li></ul></div></div>
+                    <div class="digest-card qa-card p-6"><h4 class="question flex items-start gap-3"><i class="fas fa-question-circle text-xl text-coral mt-1"></i><span>问题5：在申请密令时，“推广位”应该如何选择或填写？</span></h4><div class="answer-section mt-4 text-gray-600 space-y-2 text-base leading-relaxed pl-8"><p><strong>提出者：</strong> <span class="highlight-name">@刘志凯</span>, <span class="highlight-name">@SuperEric</span>, <span class="highlight-name">@靜</span></p><p><strong>回答：</strong><ul class="list-disc list-inside ml-4 space-y-1"><li><strong>技术难点</strong>：理解“推广位”的真实作用，避免因错误选择而影响推广。</li><li><strong>解决方案</strong>：可以直接选择“默认推广位”。<br>如果希望区分不同渠道（如抖音、微信群、小红书）的数据效果，可以点击“新建推广位”，并为其命名。这只是一个数据统计标签，不影响佣金和推广。</li><li><strong>关键工具/资源</strong>：云瞻平台“推广位管理”。</li></ul></div></div>
+                    <div class="digest-card qa-card p-6"><h4 class="question flex items-start gap-3"><i class="fas fa-question-circle text-xl text-coral mt-1"></i><span>问题6：兑换成功后，在哪里可以查看或找到我的密令？</span></h4><div class="answer-section mt-4 text-gray-600 space-y-2 text-base leading-relaxed pl-8"><p><strong>提出者：</strong> <span class="highlight-name">@云中鹤</span>, <span class="highlight-name">@栩赫</span></p><p><strong>回答：</strong><ul class="list-disc list-inside ml-4 space-y-1"><li><strong>技术难点</strong>：平台操作流程引导不够直观，用户找不到已兑换的资产。</li><li><strong>解决方案</strong>：<ol class="list-decimal list-inside ml-2"><li>兑换成功后，返回到云瞻平台“密令推广”的初始页面。</li><li>重新点击申请密令的入口，此时系统会显示你已经拥有的密令列表。</li></ol></li><li><strong>关键工具/资源</strong>：云瞻平台密令兑换流程文档。</li></ul></div></div>
+                    <div class="digest-card qa-card p-6"><h4 class="question flex items-start gap-3"><i class="fas fa-question-circle text-xl text-coral mt-1"></i><span>问题7：美团外卖节的CPS佣金逻辑是怎样的？</span></h4><div class="answer-section mt-4 text-gray-600 space-y-2 text-base leading-relaxed pl-8"><p><strong>提出者：</strong> <span class="highlight-name">@阿讯｜22:30休息</span></p><p><strong>回答：</strong><ul class="list-disc list-inside ml-4 space-y-1"><li><strong>技术难点</strong>：理解订单有效性的判断标准。</li><li><strong>解决方案</strong>：核心逻辑是“用券归因”。用户必须通过你的推广链接/密令 **领取** 优惠券，并且在下单时 **使用** 了这张优惠券，这笔订单才会计为你的有效推广，并产生佣金。</li><li><strong>关键工具/资源</strong>：云瞻平台订单明细。</li></ul></div></div>
+                    <div class="digest-card qa-card p-6"><h4 class="question flex items-start gap-3"><i class="fas fa-question-circle text-xl text-coral mt-1"></i><span>问题8：直播时，如何将手机画面和多张优惠图片组合在一起进行投屏？</span></h4><div class="answer-section mt-4 text-gray-600 space-y-2 text-base leading-relaxed pl-8"><p><strong>提出者：</strong> <span class="highlight-name">@RK10</span></p><p><strong>回答：</strong><ul class="list-disc list-inside ml-4 space-y-1"><li><strong>技术难点</strong>：实现复杂的直播画面布局。</li><li><strong>解决方案</strong>：这不是直播软件的直接功能，而是通过预处理实现的。<ol class="list-decimal list-inside ml-2"><li>先用美图秀秀、Photoshop等做图软件，将多张优惠活动的截图按需“拼”成一张大的背景图。</li><li>在直播时，将这张拼好的大图作为直播背景。</li><li>将手机投屏画面置于顶层，并调整其大小和位置，放置在背景图的预留区域。</li></ol></li><li><strong>关键工具/资源</strong>：美图秀秀（拼图功能）、爱思助手（投屏）、OBS/直播伴侣。</li></ul></div></div>
+                    <div class="digest-card qa-card p-6"><h4 class="question flex items-start gap-3"><i class="fas fa-question-circle text-xl text-coral mt-1"></i><span>问题9：淘宝闪购的三个不同推广入口（叠红包、新客专享、日常）有什么区别？</span></h4><div class="answer-section mt-4 text-gray-600 space-y-2 text-base leading-relaxed pl-8"><p><strong>提出者：</strong> <span class="highlight-name">@酱伴菜。</span></p><p><strong>回答：</strong><ul class="list-disc list-inside ml-4 space-y-1"><li><strong>技术难点</strong>：官方活动名称相似，难以从字面理解实际优惠差异。</li><li><strong>解决方案</strong>：经过成员实际测试和讨论，初步结论是：几个入口最终引导用户领取的优惠券（如22元券包）是基本一致的。<br>“叠红包”可能是在原有券包基础上，有机会获得额外的小额红包。<br>“新客专享”则针对淘宝新用户或闪购新用户，可能会有更大的优惠力度。</li><li><strong>关键工具/资源</strong>：云瞻平台-淘宝闪购推广模块。</li></ul></div></div>
+                    <div class="digest-card qa-card p-6"><h4 class="question flex items-start gap-3"><i class="fas fa-question-circle text-xl text-coral mt-1"></i><span>问题10：直播时，是否需要购买专业的麦克风？</span></h4><div class="answer-section mt-4 text-gray-600 space-y-2 text-base leading-relaxed pl-8"><p><strong>提出者：</strong> <span class="highlight-name">@文</span>, <span class="highlight-name">@RK10</span></p><p><strong>回答：</strong><ul class="list-disc list-inside ml-4 space-y-1"><li><strong>技术难点</strong>：在控制成本的前提下，保证直播音质清晰，无杂音。</li><li><strong>解决方案</strong>：不一定需要专业麦克风。普通的苹果耳机或任何能正常、清晰收音的耳机都可以作为起步设备。<br>如果追求更好的效果，可以购买带有“监听”功能的耳麦，这样可以实时听到自己直播间的声音效果，便于调整。</li><li><strong>关键工具/资源</strong>：带麦克风的耳机。</li></ul></div></div>
+                    <div class="digest-card qa-card p-6"><h4 class="question flex items-start gap-3"><i class="fas fa-question-circle text-xl text-coral mt-1"></i><span>问题11：如何获取直播话术中提到的确定性优惠信息（如“18-18”大额券）？</span></h4><div class="answer-section mt-4 text-gray-600 space-y-2 text-base leading-relaxed pl-8"><p><strong>提出者：</strong> <span class="highlight-name">@飍</span></p><p><strong>回答：</strong><ul class="list-disc list-inside ml-4 space-y-1"><li><strong>技术难点</strong>：优惠活动存在“千人千面”和时效性，难以获取统一、确定的优惠信息。</li><li><strong>解决方案</strong>：<ul class="list-disc list-inside ml-2"><li>这类大额券通常是针对“新用户”或“不定期爆款活动”的，并非日常都有。</li><li>获取渠道一：密切关注官方通知群，爆款活动会第一时间同步。</li><li>获取渠道二：直接咨询云瞻平台的官方客服，了解当前主推活动的具体详情。</li></ul></li><li><strong>关键工具/资源</strong>：官方活动通知群、云瞻客服。</li></ul></div></div>
+                    <div class="digest-card qa-card p-6"><h4 class="question flex items-start gap-3"><i class="fas fa-question-circle text-xl text-coral mt-1"></i><span>问题12：苹果Mac电脑用户如何进行投屏直播？</span></h4><div class="answer-section mt-4 text-gray-600 space-y-2 text-base leading-relaxed pl-8"><p><strong>提出者：</strong> <span class="highlight-name">@.(love-foreverer)</span>, <span class="highlight-name">@天骐</span></p><p><strong>回答：</strong><ul class="list-disc list-inside ml-4 space-y-1"><li><strong>技术难点</strong>：抖音官方的“直播伴侣”和常用的“爱思助手”投屏软件没有Mac版。</li><li><strong>解决方案</strong>：<ul class="list-disc list-inside ml-2"><li>方案一（推荐）：直接使用手机进行直播。这是最简单直接的方式。</li><li>方案二：寻找支持Mac的第三方投屏软件，如 `scrcpy`（需要一定的技术动手能力）。</li><li>方案三（不推荐）：在Mac上安装Windows虚拟机，再在虚拟机中运行直播软件，流程复杂且可能不稳定。</li></ul></li><li><strong>关键工具/资源</strong>：手机抖音App。</li></ul></div></div>
+                    <div class="digest-card qa-card p-6"><h4 class="question flex items-start gap-3"><i class="fas fa-question-circle text-xl text-coral mt-1"></i><span>问题13：如何将普通链接转换为可以在微信内直接跳转小程序的MP链接？</span></h4><div class="answer-section mt-4 text-gray-600 space-y-2 text-base leading-relaxed pl-8"><p><strong>提出者：</strong> <span class="highlight-name">@大王-济南</span></p><p><strong>回答：</strong><ul class="list-disc list-inside ml-4 space-y-1"><li><strong>技术难点</strong>：需要通过特定工具和格式转换，才能生成微信生态内识别的小程序路径。</li><li><strong>解决方案</strong>：<ol class="list-decimal list-inside ml-2"><li>进入 <span class="highlight-name">@瑶瑶-教练</span> 分享的教程链接 (`https://kzurl20.cn/7CD23R`)。</li><li>按照教程指引，将你的推广链接转换为以 `mp://` 开头的格式。</li><li>将生成好的MP链接粘贴到微信中发送，用户点击即可直接跳转。</li></ol></li><li><strong>关键工具/资源</strong>：MP链接生成教程。</li></ul></p><div class="supplement"><strong>注意事项</strong>：此方法不适用于淘宝，因为淘宝在微信内没有对应的小程序。</div></div></div>
+                    <div class="digest-card qa-card p-6"><h4 class="question flex items-start gap-3"><i class="fas fa-question-circle text-xl text-coral mt-1"></i><span>问题14：直播封面是否可以放置二维码？</span></h4><div class="answer-section mt-4 text-gray-600 space-y-2 text-base leading-relaxed pl-8"><p><strong>提出者：</strong> <span class="highlight-name">@云中鹤</span></p><p><strong>回答：</strong><ul class="list-disc list-inside ml-4 space-y-1"><li><strong>技术难点</strong>：规避抖音平台的引流违规判定。</li><li><strong>解决方案</strong>：**绝对不行**。在直播封面、背景或直播过程中直接展示任何形式的二维码（包括微信二维码）是严重的违规行为，极易导致直播被中断甚至封禁。</li><li><strong>关键工具/资源</strong>：抖音直播规范。</li></ul></div></div>
+                    <div class="digest-card qa-card p-6"><h4 class="question flex items-start gap-3"><i class="fas fa-question-circle text-xl text-coral mt-1"></i><span>问题15：为什么我的订单佣金显示为0或0.01元？</span></h4><div class="answer-section mt-4 text-gray-600 space-y-2 text-base leading-relaxed pl-8"><p><strong>提出者：</strong> <span class="highlight-name">@Tina</span>, <span class="highlight-name">@北觅</span>, <span class="highlight-name">@博阳-广州-lv4</span></p><p><strong>回答：</strong><ul class="list-disc list-inside ml-4 space-y-1"><li><strong>技术难点</strong>：理解平台的佣金计算细节和激励订单的逻辑。</li><li><strong>解决方案</strong>：<ul class="list-disc list-inside ml-2"><li><strong>主要原因</strong>：用户虽然通过你的链接领了券，但在最终支付时 **没有使用** 这张券。</li><li><strong>次要原因</strong>：部分平台对于“未使用券”的订单会给予一个极低的“激励佣金”（如0.01元），以记录引流行为。</li><li><strong>佣金为0的可能</strong>：订单被取消，或者推广了某些特殊的不计佣商品（如神枪手兑换券）。</li></ul></li><li><strong>关键工具/资源</strong>：云瞻订单明细，查看订单状态和用券情况。</li></ul></div></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-16 pt-8 border-t border-gray-200 text-center text-gray-400 text-sm">
+            <p>&copy; 2025 社群精华日报. All Rights Reserved.</p>
+            <p class="mt-1">A Fresh Design for a New Day.</p>
+        </footer>
+
+    </div>
+</body>
+</html>
